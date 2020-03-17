@@ -38,27 +38,18 @@ public class BrickBreaker extends JPanel implements Runnable, KeyListener {
 	public ArrayList<Mascot> generateBricks() {
 		int width = 10, height = 25;
 		ArrayList<Mascot> bricks = new ArrayList<Mascot>();
-		int numBricks = 25;
-		for (int i = 0; i < numBricks; i++) {
-			int x = (int) (Math.random() * 16) + 1;
-			int y = (int) (Math.random() * 12) + 1;
-			bricks.add(new Mascot(x * 47, y * 27, 40, 25));
+		int curY = 0;
+		int space_between_y = 10;
+		for (int i = 0; i < 5; i++) {
+			int space_between_x = 10;
+			int curX = space_between_x;
+			for (int j = 0; j < 8; j++) {
+				bricks.add(new Mascot(curX, curY + height + space_between_y, width, height));
+				curX += 100;
+			}
+			curY += 40;
 		}
-//		bricks.add(new Mascot(0, 0, 5, 10));
-//		bricks.add(new Mascot(0, 75, 5, 10));
-//		bricks.add(new Mascot(300, 0, 5, 10));
-//		int curY = 0;
-//		int space_between_y = 10;
-//		for (int i = 0; i < 5; i++) {
-//			int space_between_x = 20;
-//			int curX = space_between_x;
-//			for (int j = 0; j < 5; j++) {
-//				//bricks.add(new Mascot(curX, curY + height + space_between_y, width, height));
-//				curX += 150;
-//			}
-//			curY += 80;
-//		}
-//		System.out.println(bricks);
+		System.out.println(bricks);
 		return bricks;
 	}
 
@@ -78,9 +69,7 @@ public class BrickBreaker extends JPanel implements Runnable, KeyListener {
 		ball.keepInBounds();
 		if (ball.intersects(pad)) {
 			ball.bounce();
-			
 		}
-
 		ball.paint(window);
 		pad.paint(window);
 
