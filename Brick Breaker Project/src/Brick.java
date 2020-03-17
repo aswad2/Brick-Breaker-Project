@@ -24,8 +24,7 @@ public abstract class Brick extends Canvas {
 	public boolean intersects(Object o) {
 		Brick obj = (Brick) o;
 		Rectangle brick = new Rectangle(x, y, w, h);
-		Rectangle temp = new Rectangle(obj.x, obj.y, obj.w + 10, obj.h + 10);
-		
+		Rectangle temp = new Rectangle(obj.x, obj.y, obj.w , obj.h );
 		return brick.intersects(temp);
 	}
 

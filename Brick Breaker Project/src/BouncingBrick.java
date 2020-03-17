@@ -28,12 +28,11 @@ public class BouncingBrick extends Brick {
 	
 	public void bounce() {
 		YSPEED *= -1;
-		XSPEED *= -1;
 	}
 	
 
 	public void keepInBounds() {
-		if (x >= Runner.WIDTH - w  - 10|| x <= 0)
+		if (x >= Runner.WIDTH - w || x <= 0)
 			XSPEED *= -1;
 		if (y <= 0)
 			YSPEED *= -1;

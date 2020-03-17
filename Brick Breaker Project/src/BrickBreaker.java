@@ -25,7 +25,7 @@ public class BrickBreaker extends JPanel implements Runnable, KeyListener {
 	public BrickBreaker() {
 		setBackground(Color.WHITE);
 		keys = new boolean[3];
-		pad = new SlidingMascot(360, 530, 85, 35, 2);
+		pad = new SlidingMascot(300, 530, 85, 35, 2);
 		bricks = generateBricks();
 		ball = new BouncingBrick(600, 493, 15, 15);
 		addKeyListener(this);
@@ -36,6 +36,7 @@ public class BrickBreaker extends JPanel implements Runnable, KeyListener {
 	}
 
 	public ArrayList<Mascot> generateBricks() {
+		int width = 10, height = 25;
 		ArrayList<Mascot> bricks = new ArrayList<Mascot>();
 		int numBricks = 25;
 		for (int i = 0; i < numBricks; i++) {
@@ -43,7 +44,21 @@ public class BrickBreaker extends JPanel implements Runnable, KeyListener {
 			int y = (int) (Math.random() * 12) + 1;
 			bricks.add(new Mascot(x * 47, y * 27, 40, 25));
 		}
-
+//		bricks.add(new Mascot(0, 0, 5, 10));
+//		bricks.add(new Mascot(0, 75, 5, 10));
+//		bricks.add(new Mascot(300, 0, 5, 10));
+//		int curY = 0;
+//		int space_between_y = 10;
+//		for (int i = 0; i < 5; i++) {
+//			int space_between_x = 20;
+//			int curX = space_between_x;
+//			for (int j = 0; j < 5; j++) {
+//				//bricks.add(new Mascot(curX, curY + height + space_between_y, width, height));
+//				curX += 150;
+//			}
+//			curY += 80;
+//		}
+//		System.out.println(bricks);
 		return bricks;
 	}
 
@@ -72,7 +87,7 @@ public class BrickBreaker extends JPanel implements Runnable, KeyListener {
 		Iterator<Mascot> rad = bricks.iterator();
 		while (rad.hasNext()) {
 			Mascot cur = rad.next();
-			if (ball.intersects(cur)) {
+			if (cur.intersects(ball)) {
 				ball.bounce();
 				rad.remove();
 				bricksremaining--;

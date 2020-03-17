@@ -17,8 +17,11 @@ public class Mascot extends Brick {
 	}
 	public void paint(Graphics window) {
 		Graphics2D g2 = (Graphics2D) window;
-		Image img1 = Toolkit.getDefaultToolkit().getImage("realbrick.png");
+		Image img1 = Toolkit.getDefaultToolkit().getImage("realbrick2.png");
 		g2.drawImage(img1, x, y, this);
+	}
+	public String toString() {
+		return x + " " + y + " " + w + " " + h;
 	}
 
 }
