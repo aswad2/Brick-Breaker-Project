@@ -17,7 +17,7 @@ public class BrickBreaker extends JPanel implements Runnable, KeyListener {
 	private List<Mascot> bricks;
 	private BouncingBrick ball;
 	private boolean start = false;
-	private int bricksremaining = 25;
+	private int bricksremaining = 40;
 	private int origbricks = bricksremaining;
 	private int lives = 3;
 	private int score = 0;
@@ -25,7 +25,7 @@ public class BrickBreaker extends JPanel implements Runnable, KeyListener {
 	public BrickBreaker() {
 		setBackground(Color.WHITE);
 		keys = new boolean[3];
-		pad = new SlidingMascot(300, 530, 85, 35, 2);
+		pad = new SlidingMascot(300, 530, 144, 26, 2);
 		bricks = generateBricks();
 		ball = new BouncingBrick(600, 493, 15, 15);
 		addKeyListener(this);
@@ -36,7 +36,7 @@ public class BrickBreaker extends JPanel implements Runnable, KeyListener {
 	}
 
 	public ArrayList<Mascot> generateBricks() {
-		int width = 10, height = 25;
+		int width = 88, height = 28;
 		ArrayList<Mascot> bricks = new ArrayList<Mascot>();
 		int curY = 0;
 		int space_between_y = 10;
