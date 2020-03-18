@@ -54,7 +54,7 @@ public class BrickBreaker extends JPanel implements Runnable, KeyListener {
 	}
 
 	public void paint(Graphics window) {
-		window.setColor(Color.BLUE);
+		window.setColor(Color.BLACK);
 		window.fillRect(0, 0, 800, 600);
 		window.setColor(Color.WHITE);
 
